@@ -38,5 +38,14 @@ List<Dish> dishes  = menu.stream().filter(d->d.getCalories()>300).limit(3).colle
 List<Dish> dishes = menu.stream().filter(d->d.getCalories()>300).skip(3).collect(toList());
 ```  
 ### 1.2.2 映射
+**map**
+流支持map方法，它会接受一个函数作为参数。这个函数会被应用到每个元素上，并将其映射成一个新的元素。例如：  
+```
+List<String> dishNames =menu.stream().map(Dish::getName).collect(toList());
+List<Integer> dishNameLengths = menu.stream().map(Dish::getName).map(String::length).collect(toList());
+List<String> words = Arrays.asList("Java 8", "Lambdas", "In", "Action");
+List<Integer> wordLengths = words.stream().map(String::length).collect(toList());
 
+```
+**flatMap**
 
